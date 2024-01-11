@@ -1,0 +1,36 @@
+package SimonDice;
+
+import java.util.Scanner;
+
+public class Engine {
+	public enum tColores{
+		Rojo, Azul, Verde, Dorado
+	}
+	//tColores charToColor (char _color) {
+	//	
+	//}
+	private static final int MAX_COLORES_SEQ = 12;
+	tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
+	
+	  public void start() {
+			Scanner scn = new Scanner(System.in);
+			
+	        System.out.println("¡El motor ha comenzado!");
+	        System.out.println("Welcome to...");
+			System.out.println("			██╗");
+			System.out.println("			╚█║");
+			System.out.println("			░╚╝");
+			System.out.println("░██████╗██╗███╗░░░███╗░█████╗░███╗░░██╗  ██████╗░██╗░█████╗░███████╗");
+			System.out.println("██╔════╝██║████╗░████║██╔══██╗████╗░██║  ██╔══██╗██║██╔══██╗██╔════╝");
+			System.out.println("╚█████╗░██║██╔████╔██║██║░░██║██╔██╗██║  ██║░░██║██║██║░░╚═╝█████╗░░");
+			System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
+			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
+			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
+			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador 
+			Jugador player = new Jugador(scn.nextLine());
+			System.out.print(player.getNombre());
+			scn.nextLine(); // Wait for ENTER
+			
+			System.out.print("\nSequence number 1: ");
+	    }
+}

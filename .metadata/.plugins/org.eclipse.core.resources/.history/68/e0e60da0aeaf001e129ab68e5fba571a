@@ -1,0 +1,103 @@
+package SimonDice;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Engine {
+	/**
+	 * @param clase tColores con los colores
+	 */
+	public enum tColores{
+		Rojo, Azul, Verde, Dorado
+	}
+	/**
+	 * @param secuencia maxima de colores 
+	 */
+	private static final int MAX_COLORES_SEQ = 12;
+	tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
+	
+	/**
+	 * @param _color
+	 * @return
+	 */
+		public int charToColor (char _color) {
+		switch (Character.toUpperCase(_color)) {
+	        case 'R':
+	            return 1;
+	        case 'A':
+	            return 2;
+	        case 'V':
+	            return 3;
+	        case 'D':
+	            return 4;
+	        default:
+	            throw new IllegalArgumentException("Not valid color: " + _color);
+		}
+	}
+	/**
+	 * @param _numero
+	 * @return
+	 */
+		public tColores intToColor (int _numero) {
+		switch (Character.toUpperCase(_numero)) {
+	        case 1:
+	            return tColores.Rojo;
+	        case 2:
+	            return tColores.Azul;
+	        case 3:
+	            return tColores.Verde;
+	        case 4:
+	            return tColores.Dorado;
+	        default:
+	            throw new IllegalArgumentException("Not valid color: " + _numero);
+		}
+	}
+		void generarSecuencia (int _numColores) {
+			
+		}
+	/**
+	 * @param Creacion del metodo start
+	 */
+	  public void start() {
+		  	Scanner scn = new Scanner(System.in);
+	        Random random = new Random();
+			/**
+			 * @param Menu de Simon Dice
+			 */
+	        System.out.println("Welcome to...");
+			System.out.println("			██╗");
+			System.out.println("			╚█║");
+			System.out.println("			░╚╝");
+			System.out.println("░██████╗██╗███╗░░░███╗░█████╗░███╗░░██╗  ██████╗░██╗░█████╗░███████╗");
+			System.out.println("██╔════╝██║████╗░████║██╔══██╗████╗░██║  ██╔══██╗██║██╔══██╗██╔════╝");
+			System.out.println("╚█████╗░██║██╔████╔██║██║░░██║██╔██╗██║  ██║░░██║██║██║░░╚═╝█████╗░░");
+			System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
+			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
+			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
+			
+			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
+			Jugador player = new Jugador(scn.nextLine());
+			System.out.print(player.getNombre());
+			scn.nextLine(); // Wait for ENTER
+			int contadorseq = 1;
+		    int secuencia = 3;
+
+		    do {
+		        /**
+		        * @param Imprime los nombres aleatorios
+		        */
+		        System.out.print("\nSequence number " + contadorseq + ": ");
+		        for (int i = 0; i < secuencia; i++) {
+		             tColores colorAleatorio = tColores.values()[random.nextInt(tColores.values().length)];
+		             System.out.print(colorAleatorio + " ");
+		            }
+		        System.out.println("\nMemorize the sequence and press ENTER to continue...");
+		        scn.nextLine();
+		        String _color = scn.nextLine();
+		        
+		        secuencia++;
+		        contadorseq++;
+		       } while (secuencia < secuenciaColores.length); // AQUI HABIRA QUE PONER UN AND SOBRE SI LA SECUENCIA QUE INTRODUCE EL USUARIO ES VALIDA. Puedes ajustar el número de secuencias según tus necesidades
+		    
+	  }
+}

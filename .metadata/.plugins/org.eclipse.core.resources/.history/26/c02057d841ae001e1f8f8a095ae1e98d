@@ -1,0 +1,13 @@
+package SimonDice;
+
+public class engine {
+	public enum tColores{
+		Rojo, Azul, Verde, Dorado
+	}
+	//tColores charToColor (char _color) {
+	//	
+	//}
+	private static final int MAX_COLORES_SEQ = 12;
+	
+	
+}

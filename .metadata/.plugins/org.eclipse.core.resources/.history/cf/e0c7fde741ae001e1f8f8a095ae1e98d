@@ -1,0 +1,14 @@
+package SimonDice;
+
+public class jugador {
+	//Nombre
+	//Puntuacion
+	
+	
+	
+	// Constructora
+	// this puntacion = 0; ( para la siguiente version)
+	
+	
+	//2 gets nombre y  puntuacion y 2 set puntuacion
+}

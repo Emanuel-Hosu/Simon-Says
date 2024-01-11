@@ -1,0 +1,38 @@
+package SimonDice;
+import java.util.Scanner;
+
+
+/**
+ * @author Emanuel Hosu
+ */
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		Engine eny = new Engine();
+		Jugador player = new Jugador(scn.nextLine());
+		//eny start();
+		
+		
+		System.out.println("Welcome to...");
+		System.out.println("			██╗");
+		System.out.println("			╚█║");
+		System.out.println("			░╚╝");
+		System.out.println("░██████╗██╗███╗░░░███╗░█████╗░███╗░░██╗  ██████╗░██╗░█████╗░███████╗");
+		System.out.println("██╔════╝██║████╗░████║██╔══██╗████╗░██║  ██╔══██╗██║██╔══██╗██╔════╝");
+		System.out.println("╚█████╗░██║██╔████╔██║██║░░██║██╔██╗██║  ██║░░██║██║██║░░╚═╝█████╗░░");
+		System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
+		System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
+		System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
+		System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador 
+		player = scn.nextLine();
+		
+		
+		System.out.print("Hello " + Nombre + ", press ENTER to start playing");
+		scn.nextLine(); // Wait for ENTER
+		
+		System.out.print("\nSequence number 1: ");
+	}
+
+}

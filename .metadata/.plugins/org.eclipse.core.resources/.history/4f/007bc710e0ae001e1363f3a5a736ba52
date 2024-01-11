@@ -1,0 +1,22 @@
+package SimonDice;
+
+public class Jugador {
+	
+	private String nombre;
+	private int puntuacion;
+		
+		
+	public Jugador (String _nombre) {
+		nombre = _nombre;
+	}
+	
+	
+	public String getNombre() {
+		return "Hello " + this.nombre + ", press ENTER to start playing";
+	}
+		// Constructora
+		// this puntacion = 0; ( para la siguiente version)
+		
+		
+		//2 gets nombre y  puntuacion y 2 set puntuacion
+}

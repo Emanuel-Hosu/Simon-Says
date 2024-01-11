@@ -1,0 +1,17 @@
+package SimonDice;
+
+public class Engine {
+	public enum tColores{
+		Rojo, Azul, Verde, Dorado
+	}
+	//tColores charToColor (char _color) {
+	//	
+	//}
+	private static final int MAX_COLORES_SEQ = 12;
+	tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
+	
+	  public void start() {
+	        System.out.println("¡El motor ha comenzado!");
+	        // Aquí puedes agregar más lógica según sea necesario
+	    }
+}

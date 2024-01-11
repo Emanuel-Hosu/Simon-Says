@@ -1,0 +1,32 @@
+package SimonDice;
+import java.util.Scanner;
+
+
+/**
+ * @author Emanuel Hosu
+ */
+
+public class Main {
+	public enum tColores{
+		Rojo, Azul, Verde, Dorado
+	}
+	//tColores charToColor (char _color) {
+	//	
+	//}
+	private static final int MAX_COLORES_SEQ = 12;
+	
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
+		tColores[] se
+		
+		System.out.print("Welcome to Simon dice!");
+		System.out.print("\nWhat is your name?");
+		String Nombre = scn.nextLine();
+		System.out.print("Hello " + Nombre + ", press ENTER to start playing");
+		scn.nextLine(); // Wait for ENTER
+		
+		System.out.print("\nSecuencia número 1: " + );
+	}
+
+}

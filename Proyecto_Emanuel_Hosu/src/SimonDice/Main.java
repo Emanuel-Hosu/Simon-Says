@@ -1,0 +1,18 @@
+package SimonDice;
+import java.util.Scanner;
+
+/**
+ * @author Emanuel Hosu
+ */
+
+public class Main {
+	public static void main(String[] args) {
+		/**
+		 * @param Llamada a la clase Engine (motor del juego)
+		 */
+		Engine eng = new Engine();
+		eng.start();
+		
+	}
+
+}
