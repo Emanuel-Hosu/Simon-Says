@@ -1,0 +1,6 @@
+for (int i = 0; i <  secuencia; i++) { //ANTES TENIA PUESTO EL NUMCOLORES
+			        	int colorAleatorio = randomColor.nextInt(numColores + 1);
+			        	this.secuenciaColores[i]=intToColor(colorAleatorio);
+		                //tColores colorEnum = intToColor(colorAleatorio); //ESTO SIRVE PARA PONERLE NOMBRE A LOS NUMEROS
+		                System.out.print(secuenciaColores[i] + " ");
+			        }

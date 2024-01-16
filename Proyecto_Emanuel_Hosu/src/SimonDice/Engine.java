@@ -1,5 +1,5 @@
 package SimonDice;
-
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,16 +20,16 @@ public class Engine {
 	 * @param _color
 	 * @return
 	 */
-		public int charToColor (char _color) {
+		public tColores charToColor (char _color) {
 		switch (Character.toUpperCase(_color)) {
 	        case 'R':
-	            return 1;
+	            return tColores.Rojo;
 	        case 'A':
-	            return 2;
+	            return tColores.Azul;
 	        case 'V':
-	            return 3;
+	            return tColores.Verde;
 	        case 'D':
-	            return 4;
+	            return tColores.Dorado;
 	        default:
 	            throw new IllegalArgumentException("Not valid color: " + _color);
 		}
@@ -40,13 +40,13 @@ public class Engine {
 	 */
 		public tColores intToColor (int _numero) {
 		switch (Character.toUpperCase(_numero)) {
-	        case 1:
+	        case 0:
 	            return tColores.Rojo;
-	        case 2:
+	        case 1:
 	            return tColores.Azul;
-	        case 3:
+	        case 2:
 	            return tColores.Verde;
-	        case 4:
+	        case 3:
 	            return tColores.Dorado;
 	        default:
 	            throw new IllegalArgumentException("Not valid color: " + _numero);
@@ -56,22 +56,80 @@ public class Engine {
 		 * 
 		 * @param _numColores
 		 */
-		void generarSecuencia (int _numColores) {
-			Random random = new Random();
-			int [] secuenciaColores = {0, _numColores};
-			
-			
-			for (int i = 0; i < _numColores; i++) {
-	             tColores colorAleatorio = tColores.values()[random.nextInt(tColores.values().length)];
-	             System.out.print(colorAleatorio + " ");
-	            }
-			 
-		}
+		 public void generarSecuencia(int _numColores) {
+			//Random randomColor = new Random();
+			//int [] secuenciaColores = new int [_numColores];
+
+		    //for (int i = 0; i < _numColores; i++) {
+		    //	 int colorAleatorio = randomColor.nextInt(_numColores) + 1;
+		    //	 secuenciaColores[i] = colorAleatorio;   
+		    //	 System.out.print(colorAleatorio + " ");
+		    // }
+			/*
+			Scanner scn = new Scanner(System.in);
+			Random randomColor = new Random();
+			 int contadorseq = 1;
+			 int secuencia = 3;
+			 int numColores = 3;
+			    	    
+			    do {
+			        System.out.print("\nSequence number " + contadorseq + ": ");
+			        for (int i = 0; i <  secuencia; i++) { //ANTES TENIA PUESTO EL NUMCOLORES
+			        	int colorAleatorio = randomColor.nextInt(numColores + 1);
+			        	this.secuenciaColores[i]=intToColor(colorAleatorio);
+		                //tColores colorEnum = intToColor(colorAleatorio); //ESTO SIRVE PARA PONERLE NOMBRE A LOS NUMEROS
+		                System.out.print(secuenciaColores[i] + " ");
+			        }
+			        System.out.println("\nMemorize the sequence and press ENTER to continue...");
+			        scn.nextLine();
+			        String _color = scn.nextLine();
+			        
+			        secuencia++;
+			        contadorseq++;
+			       } while (secuencia < secuenciaColores.length); // AQUI HABIRA QUE PONER UN AND SOBRE SI LA SECUENCIA QUE INTRODUCE EL USUARIO ES VALIDA. Puedes ajustar el número de secuencias según tus necesidades
+		  */
+			 Random randomColor = new Random();
+
+			 int numsec = 2;
+				 for (int i = 0; i < secuenciaColores.length; i++) {
+					    int colorAleatorio = randomColor.nextInt(_numColores + 1);
+					    secuenciaColores[i] = intToColor(colorAleatorio);
+
+					    if (i == numsec) {
+					        break;
+					    }
+				 }
+				 
+				 // SIRVE PARA IMPRIMIR LA SECUENCIA
+				 /* System.out.print("[ ");
+				 for (int i = 0; i < secuenciaColores.length; i++) {
+				     System.out.print(secuenciaColores[i]);
+				     if (i < secuenciaColores.length - 1) {
+				         System.out.print(", ");
+				     }
+				 }
+				 System.out.println(" ]");*/
+		 }
+		 
+		 public boolean comprobarColor(int _index, tColores _color) {
+			 if (secuenciaColores[_index] == _color)
+				 return true;
+			 else
+				 return false;
+		 }
+		 
+		 public void mostrarSecuencia (int _numero) {
+			 	generarSecuencia(3);
+				System.out.print("\nSequence number " + _numero + ": " + Arrays.toString(secuenciaColores));
+				
+				//IF comprobarColor ns k true _numero++ y lo mismo va en el start() y hacer el for del pdf
+		 }
 	/**
 	 * @param Creacion del metodo start
 	 */
 	  public void start() {
 		  	Scanner scn = new Scanner(System.in);
+		  	
 			/**
 			 * @param Menu de Simon Dice
 			 */
@@ -90,9 +148,19 @@ public class Engine {
 			Jugador player = new Jugador(scn.nextLine());
 			System.out.print(player.getNombre());
 			scn.nextLine(); // Wait for ENTER
-			int contadorseq = 1;
-		    int secuencia = 3;
-
+			int i = 1;
+			
+			do {
+				mostrarSecuencia(i);
+				System.out.print("\nMemorize the sequence and press ENTER to continue...");
+				scn.nextLine();
+				char color = new Scanner(System.in).next().charAt(0);
+				charToColor(color);
+				
+				
+			}while(i <  secuenciaColores.length); //AND COMBROBAR COLOOR RETURN TRUE
+		    
+		    	    
 		    /*do {
 		        /**
 		        * @param Imprime los nombres aleatorios
