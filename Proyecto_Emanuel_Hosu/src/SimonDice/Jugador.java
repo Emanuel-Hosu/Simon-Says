@@ -5,9 +5,8 @@ package SimonDice;
 public class Jugador {
 	private String nombre;
 	private int puntuacion;
-	
 	/**
-	 * @param Jugador, una constructora que se encarga de momento, recibir el string _nombre, para luego devolverlo a la clase Enigine.
+	 * Jugador, una constructora que se encarga de momento, recibir el string _nombre, para luego devolverlo a la clase Enigine.
 	 * @param _nombre
 	 */
 	public Jugador (String _nombre) {
@@ -15,7 +14,7 @@ public class Jugador {
 		puntuacion = 0;
 	}
 	/**
-	 * @param getNombre, este és un método que se encarga de devolver a la clase Engine el nombre introducido por el usuario
+	 * getNombre, este es un metodo que se encarga de devolver a la clase Engine el nombre introducido por el usuario
 	 * @return
 	 */
 	public String getNombre() {

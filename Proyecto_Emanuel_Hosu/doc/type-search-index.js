@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"SimonDice","l":"Engine"},{"p":"SimonDice","l":"Jugador"},{"p":"SimonDice","l":"Main"},{"p":"SimonDice","l":"Engine.tColores"}];updateSearchResults();
