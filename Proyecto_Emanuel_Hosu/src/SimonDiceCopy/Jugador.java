@@ -10,8 +10,8 @@ public class Jugador {
 	 * @param _nombre
 	 */
 	public Jugador (String _nombre) {
-		nombre = _nombre;
-		puntuacion = 0;
+		this.nombre = _nombre;
+		this.puntuacion = 0;
 	}
 	/**
 	 * getNombre, este es un metodo que se encarga de devolver a la clase Engine el nombre introducido por el usuario

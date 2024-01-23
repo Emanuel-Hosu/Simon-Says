@@ -50,7 +50,6 @@ public class Engine {
 	 */
 	public tColores intToColor(int _numero) {
 		Scanner scn = new Scanner(System.in);
-		
 		switch (Character.toUpperCase(_numero)) {
 		case 0:
 			return tColores.Rojo;

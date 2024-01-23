@@ -14,6 +14,12 @@ public class Engine {
 		Rojo, Azul, Verde, Dorado, Blanco, Marron, Naranja
 	}
 	/**
+	 * tModo
+	 */
+	public enum tModo{
+		Facil, Dificil
+	}
+	/**
 	 * MAX_COLORES_SEQ, este es un  metodo static ( por que no nos interesa cambiar su resultado ) el cual se encarga de ponerle un "limite" al secuenciaColores
 	 */
 	private static final int MAX_COLORES_FACIL = 12;
@@ -83,15 +89,55 @@ public class Engine {
 		}
 	}
 	/**
+	 * 
+	 * @param _chosedmode
+	 * @return
+	 */
+	public tModo modoIntToColor(int _chosedmode) {
+		Scanner scn = new Scanner(System.in);
+		
+		switch (Character.toUpperCase(_chosedmode)) {
+		case 1:
+			return tModo.Facil;
+		case 2:
+			return tModo.Dificil;
+		default:
+            System.out.println("Entrada no válida. Introduce un número VALIDO del 1 - 3.");
+			return null;
+		}
+	}
+	/**
+	 * tModo
+	 * @param _modo
+	 */
+	/*public void tModo(int _modo) {
+		if (_modo == 1) {
+			generarSecuencia(3);
+			play();
+			//INTERIOR DEL MODO FAICL
+		}else if (_modo == 2) {
+			generarSecuencia(6);
+			play();
+			//INTERIOR DEL MODO  DIFICIL
+		}
+	}*/
+	/**
 	 * generarSecuencia, metodo que se encarga de generar un Array de colores aleatorios en el array secuenciaColores.
 	 * @param _numColores este parametro se encarga de recibir el numero de colores que exiten en el array
 	 */
 	public void generarSecuencia(int _numColores) {
 		Random randomColor = new Random();
-
-		for (int i = 0; i < MAX_COLORES_FACIL; i++) {
-			int colorAleatorio = randomColor.nextInt(_numColores + 1);
-			secuenciaColores[i] = intToColor(colorAleatorio);
+		
+		if (_numColores == 3) {
+			for (int i = 0; i < MAX_COLORES_FACIL; i++) {
+				int colorAleatorio = randomColor.nextInt(_numColores + 1);
+				secuenciaColores[i] = intToColor(colorAleatorio);
+			}
+		}else if (_numColores == 6) {
+			for (int i = 0; i < MAX_COLORES_DIFICIL; i++) {
+				int colorAleatorio = randomColor.nextInt(_numColores + 1);
+				secuenciaColores_hard[i] = intToColor(colorAleatorio);
+			}
 		}
 	}
 	/**
@@ -103,14 +149,15 @@ public class Engine {
 	public boolean comprobarColor(int _index, tColores _color) {
 		Scanner scn = new Scanner(System.in);
 		
-		if (secuenciaColores[_index] == (_color))
+		if (secuenciaColores[_index] == (_color)) {
 			return true;
-		else
+		}else {
 			System.out.println("You failed :(, try again next time");
 			System.out.println("Press ENTER to go to the menu.");
 			scn.nextLine();
 			mostrarMenu('0');
 			return false;
+		}
 	}
 	/**
 	 * mostrarSecuencia, metodo que recibe un int, que se encarga de enseñar al usuario la copia de un secuenciaColores, pero este con los colores que deseamos que el usuario vea
@@ -118,30 +165,19 @@ public class Engine {
 	 */
 	public void mostrarSecuencia(int _numero) {
 	  	Scanner scn = new Scanner(System.in);
-		
-		int num_color = _numero + 2;
-		tColores[] copiaseq = new tColores[num_color]; //COPIA DE LA SECUENCIA DE COLORES PREVIA, SOLO COLORES QUE QUIERO MOSTRAR
-		
-		for (int i = 0; i < num_color; i++) {
-			copiaseq[i] = secuenciaColores[i];
-		}
-		System.out.print("\nSequence number " + _numero + ": " + Arrays.toString(copiaseq));
-		System.out.print("\nMemorize the sequence and press ENTER to continue...");
-		scn.nextLine();
-		for (int salto = 0; salto < 50; salto++) {
-			System.out.println();
-		}
-	}
-	/**
-	 * tModo
-	 * @param _modo
-	 */
-	public void tModo(int _modo) {
-		if (_modo == 1) {
-			//INTERIOR DEL MODO FAICL
-		}else if (_modo == 2) {
-			//INTERIOR DEL MODO  DIFICIL
-		}
+	
+	  		int num_color = _numero + 2;
+			tColores[] copiaseq = new tColores[num_color]; //COPIA DE LA SECUENCIA DE COLORES PREVIA, SOLO COLORES QUE QUIERO MOSTRAR
+			
+			for (int i = 0; i < num_color; i++) {
+				copiaseq[i] = secuenciaColores[i];
+			}
+			System.out.print("\nSequence number " + _numero + ": " + Arrays.toString(copiaseq));
+			System.out.print("\nMemorize the sequence and press ENTER to continue...");
+			scn.nextLine();
+			for (int salto = 0; salto < 50; salto++) {
+				System.out.println();
+			}
 	}
 	/**
 	 * mostrarMenu metodo que se encarga de mostrar el menu
@@ -177,10 +213,12 @@ public class Engine {
 	        	        
 	        	        if (playMode == '1') {
 	        	        	//LLEVAR JUGADOR AL MODO FACIL
-	        	        	tModo(1);
+	        	        	//tModo(1);
+	        	        	play(1);
 	        	        }else if (playMode == '2') {
 	        	        	//LLEVAR JUGADOR AL MODO DIFICIL
-	        	        	tModo(2);
+	        	        	//tModo(2);
+	        	        	play(2);
 	        	        }else if (playMode == '3'){
 	        	        	mostrarMenu('0');
 	        	        }else {
@@ -258,12 +296,15 @@ public class Engine {
 	  		 * play, metodo que se encarga de llamar al método generarSecuencia y al metodo mostrarSecuencia que se encarga de recibir por consola los colores introducidos por el usuario
 	  		 * 
 	  		 */
-			public void play() {
+			public tModo play(int _modo) {
+				for (int salto = 0; salto < 50; salto++) {
+                    System.out.println();
+                }
 			  	Scanner scn = new Scanner(System.in);
 			  	
     			int i = 1;
     			int nivel = i + 2;
-    			generarSecuencia(3);
+    			//generarSecuencia(3);
     			
     			do {
     				mostrarSecuencia(i);
@@ -288,5 +329,6 @@ public class Engine {
     			System.out.println("Press ENTER to go to the menu.");
     			scn.nextLine();
     			mostrarMenu('0');
+				return null;
 	  }
 }
