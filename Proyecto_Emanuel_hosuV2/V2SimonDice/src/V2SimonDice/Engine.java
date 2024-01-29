@@ -52,10 +52,10 @@ public class Engine {
 		case 'N':
 			return tColores.Naranja;
 		default:
-			System.out.println("Incorrect color...");
-			System.out.println("Press ENTER to go to the menu.");
-			scn.nextLine();
-			mostrarMenu('0');
+			//System.out.println("Incorrect color...");
+			//System.out.println("Press ENTER to go to the menu.");
+			//scn.nextLine();
+			//mostrarMenu('0');
 			return null;
 		}
 	}
@@ -65,7 +65,7 @@ public class Engine {
 	 * @return
 	 */
 	public tColores intToColor(int _numero) {
-		Scanner scn = new Scanner(System.in);
+		//Scanner scn = new Scanner(System.in);
 		
 		switch (Character.toUpperCase(_numero)) {
 		case 0:
@@ -83,10 +83,10 @@ public class Engine {
 		case 6:
 			return tColores.Naranja;
 		default:
-			System.out.println("Incorrect color...");
-			System.out.println("Press ENTER to go to the menu.");
-			scn.nextLine();
-			mostrarMenu('0');
+			//System.out.println("Incorrect color...");
+			//System.out.println("Press ENTER to go to the menu.");
+			//scn.nextLine();
+			//mostrarMenu('0');
 			return null;
 		}
 	}
@@ -235,10 +235,19 @@ public class Engine {
 	        }
 	    } while (_menu < 1 || _menu > 3);
 	}
+	/**
+	 * 
+	 * @param _index
+	 * @return
+	 */
 	public boolean usarAyuda(int _index){
+		//Puntuacion -8;
+		if (_index + 1 > 0) {
+			_index --;
+			return true;
+		}
 		
-		
-		return true; //pista
+		return false;
 	}
 	/**
 	 * helpMenu que se encarga de ensenyar al usuario como jugar
@@ -285,7 +294,7 @@ public class Engine {
 			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
 			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
 			
-			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
+			System.out.print("\nWhat is your name? eh?" ); // Aqui se instancia el objeto jugador
 			Jugador player = new Jugador(scn.nextLine());
 			System.out.print(player.getNombre());
 			scn.nextLine();
@@ -303,6 +312,7 @@ public class Engine {
 			  	Scanner scn = new Scanner(System.in);
 			  	
     			int i = 1;
+    			int pista = 3;
     			//int nivel = i + 2;
     			//int modo;
     			//generarSecuencia(0);
@@ -319,8 +329,22 @@ public class Engine {
     				int nivel = i + 2;
     				int h = 0;
     				while (h < nivel) {
-    					char color_char = new Scanner(System.in).next().charAt(0);
+    					char color_char = new Scanner(System.in).next().charAt(0); 					
     					tColores color_select = charToColor(color_char);
+    					
+    					if (color_char == 'x' || color_char == 'X') {
+    						usarAyuda(pista);
+    						pista--;
+    						
+    						if (usarAyuda(pista) == true) {
+    						System.out.println("Next color is: " + secuenciaColores[h] + " (you have " + pista + " hint more)");
+    						color_select = secuenciaColores[h];		
+    						}else if (usarAyuda(pista) == false) {
+    							System.out.print("You have 0 hints, enter the next color:");
+    	    					color_char = new Scanner(System.in).next().charAt(0); 					
+    	    					color_select = charToColor(color_char);
+    						}
+    					}
     					
     					if (comprobarColor(h, color_select) == true) {
     						//+2 puntuacion
