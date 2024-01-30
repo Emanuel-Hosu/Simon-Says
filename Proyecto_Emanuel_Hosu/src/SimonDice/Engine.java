@@ -16,7 +16,7 @@ public class Engine {
 	/**
 	 * MAX_COLORES_SEQ, este es un  metodo static ( por que no nos interesa cambiar su resultado ) el cual se encarga de ponerle un "limite" al secuenciaColores
 	 */
-	private static final int MAX_COLORES_SEQ = 12;
+	private final int MAX_COLORES_SEQ = 6;
 	tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
 	/**
 	 * charToColor metodo que recibe por parametro un char _color
@@ -153,7 +153,7 @@ public class Engine {
 	                    System.out.println();
 	                }
 	                System.out.println("Good bye :(");
-	                System.exit(0);
+	               // System.exit(0);
 	            }else {
 	            System.out.println("Entrada no válida. Introduce un número VÁLIDO del 1 - 3.");
 	        }

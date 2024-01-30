@@ -150,10 +150,6 @@ public class Engine {
 		if (secuenciaColores[_index] == (_color)) {
 			return true;
 		}else {
-			System.out.println("You failed :(, try again next time");
-			System.out.println("Press ENTER to go to the menu.");
-			scn.nextLine();
-			mostrarMenu('0');
 			return false;
 		}
 	}
@@ -179,7 +175,7 @@ public class Engine {
 	public void mostrarMenu(char _menu) {
 	    Scanner scn = new Scanner(System.in);
 
-	        for (int salto = 0; salto < 10; salto++) {
+	        for (int salto = 0; salto < 50; salto++) {
 	            System.out.println();
 	        }
 
@@ -299,6 +295,7 @@ public class Engine {
 			System.out.print(player.getNombre());
 			scn.nextLine();
 			
+			//int puntuacion = player.getScore();
 			mostrarMenu('0');
 	  }
 	  		/**
@@ -306,6 +303,11 @@ public class Engine {
 	  		 * 
 	  		 */
 			public void play() {
+				Jugador player = new Jugador(null);
+				int puntuacion;
+				puntuacion = player.getScore();
+				player.setScore(puntuacion);
+				
 				for (int salto = 0; salto < 50; salto++) {
                     System.out.println();
                 }
@@ -313,12 +315,8 @@ public class Engine {
 			  	
     			int i = 1;
     			int pista = 3;
-    			//int nivel = i + 2;
-    			//int modo;
-    			//generarSecuencia(0);
 
     			do {
-    				//+5 puntuacion
     				mostrarSecuencia(i);
     				System.out.print("\nMemorize the sequence and press ENTER to continue...");
     				scn.nextLine();
@@ -334,11 +332,19 @@ public class Engine {
     					
     					if (color_char == 'x' || color_char == 'X') {
     						usarAyuda(pista);
-    						pista--;
-    						
+    						pista--;		
+    						//RESTA LOS PUNTOS AL USAR AYUDA
     						if (usarAyuda(pista) == true) {
-    						System.out.println("Next color is: " + secuenciaColores[h] + " (you have " + pista + " hint more)");
-    						color_select = secuenciaColores[h];		
+    							System.out.println("Next color is: " + secuenciaColores[h] + " (you have " + pista + " hint more)");
+	    						color_select = secuenciaColores[h];
+	    						//EN VERDAD ES 8
+	    						puntuacion -= 8;
+	    						
+	    						if(puntuacion < 8) {
+	    							//PARA QUE SEA UN 0
+    								puntuacion = -2;
+    							}
+    							
     						}else if (usarAyuda(pista) == false) {
     							System.out.print("You have 0 hints, enter the next color:");
     	    					color_char = new Scanner(System.in).next().charAt(0); 					
@@ -347,29 +353,24 @@ public class Engine {
     					}
     					
     					if (comprobarColor(h, color_select) == true) {
-    						//+2 puntuacion
     						if (h >= nivel - 1 ) {
     							i++;
+    							puntuacion += 5;
     						}
+    					}else{
+    						System.out.println("You have " + puntuacion + " points");
+    						System.out.println("You failed :(, try again next time");
+    						System.out.println("Press ENTER to go to the menu.");
+    						scn.nextLine();
+    						mostrarMenu('0');
     					}
-    					h++;
-    				}
-    				
-    				/*for (int h = 0; h < nivel; h++) {
-    					char color_char = new Scanner(System.in).next().charAt(0);
-    					tColores color_select = charToColor(color_char);
-    					//tColores color_select = intToColor(colorint);
-    					//System.out.println(secuenciaColores[h]);
     					
-    					if (comprobarColor(h, color_select) == true) {
-    						//System.out.println("correcto");
-    						if (h >= nivel - 1 ) {
-    							i++;
-    						}
-    					}
-    				}*/	
+    					h++;
+    					puntuacion += 2;
+    				}
     			}while(i <  secuenciaColores.length - 1 && comprobarColor(i, secuenciaColores[i])); //AND COMBROBAR COLOOR RETURN TRUE
     			
+    			System.out.println(puntuacion);
     			System.out.println("Congratulations :D. You won the game");
     			System.out.println("Press ENTER to go to the menu.");
     			scn.nextLine();
