@@ -24,7 +24,7 @@ public class Engine {
 	 * MAX_COLORES_SEQ, este es un  metodo static ( por que no nos interesa cambiar su resultado ) el cual se encarga de ponerle un "limite" al secuenciaColores
 	 */
 
-	public final int MAX_COLORES_SEQ= 15;
+	public final int MAX_COLORES_SEQ= 12;
 	public final int MAX_COLORES_FACIL= 3;
 	public final int MAX_COLORES_DIFICIL = 6;
 	tColores[] secuenciaColores = new tColores[MAX_COLORES_SEQ];
@@ -204,12 +204,12 @@ public class Engine {
 	        	        	//LLEVAR JUGADOR AL MODO FACIL
 	        	        	//tModo(1);
 	        	        	generarSecuencia(MAX_COLORES_FACIL);
-	        	        	play(1);
+	        	        	play();
 	        	        }else if (playMode == '2') {
 	        	        	//LLEVAR JUGADOR AL MODO DIFICIL
 	        	        	//tModo(2);
 	        	        	generarSecuencia(MAX_COLORES_DIFICIL);
-	        	        	play(2);
+	        	        	play();
 	        	        }else if (playMode == '3'){
 	        	        	mostrarMenu('0');
 	        	        }else {
@@ -225,22 +225,24 @@ public class Engine {
 	                    System.out.println();
 	                }
 	                System.out.println("Good bye :(");
-	                break;
+	                System.exit(0);
 	            }else {
 	            System.out.println("Entrada no válida. Introduce un número VALIDO del 1 - 3.");
 	        }
 	    } while (_menu < 1 || _menu > 3);
 	}
 	/**
-	 * usarAyuda ...
+	 * 
 	 * @param _index
 	 * @return
 	 */
 	public boolean usarAyuda(int _index){
+		//Puntuacion -8;
 		if (_index + 1 > 0) {
 			_index --;
 			return true;
 		}
+		
 		return false;
 	}
 	/**
@@ -298,9 +300,9 @@ public class Engine {
 	  }
 	  		/**
 	  		 * play, metodo que se encarga de llamar al método generarSecuencia y al metodo mostrarSecuencia que se encarga de recibir por consola los colores introducidos por el usuario
-	  		 * @param _modo
+	  		 * 
 	  		 */
-			public void play(int _modo) {
+			public void play() {
 				Jugador player = new Jugador(null);
 				int puntuacion;
 				puntuacion = player.getScore();
@@ -356,7 +358,7 @@ public class Engine {
     							puntuacion += 5;
     						}
     					}else{
-    						System.out.println("You have " + (puntuacion * _modo) + " points");
+    						System.out.println("You have " + puntuacion + " points");
     						System.out.println("You failed :(, try again next time");
     						System.out.println("Press ENTER to go to the menu.");
     						scn.nextLine();

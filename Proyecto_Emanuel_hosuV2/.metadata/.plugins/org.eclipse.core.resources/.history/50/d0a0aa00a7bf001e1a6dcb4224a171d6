@@ -232,7 +232,7 @@ public class Engine {
 	    } while (_menu < 1 || _menu > 3);
 	}
 	/**
-	 * usarAyuda ...
+	 * 
 	 * @param _index
 	 * @return
 	 */
@@ -274,7 +274,7 @@ public class Engine {
 	/**
 	 * start Creacion del metodo start, metodo el cual recibe un nombre que llama a la clase Jugador
 	 */
-	  public void start() {
+	  public void start(int _modo) {
 		  	Scanner scn = new Scanner(System.in);
 		  	
 	        System.out.println("Welcome to...");
@@ -298,7 +298,8 @@ public class Engine {
 	  }
 	  		/**
 	  		 * play, metodo que se encarga de llamar al método generarSecuencia y al metodo mostrarSecuencia que se encarga de recibir por consola los colores introducidos por el usuario
-	  		 * @param _modo
+	  		 * @param j 
+	  		 * 
 	  		 */
 			public void play(int _modo) {
 				Jugador player = new Jugador(null);
