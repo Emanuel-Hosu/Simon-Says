@@ -8,7 +8,7 @@ public class Main {
 		 * @param Engine eng, objeto que se encarga de hacer la llamada a la clase Engine (motor del juego), para dar comienzo al juego
 		 */
 		Engine eng = new Engine();
-		eng.start(0);
+		eng.start();
 	}
 
 }

@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\emisi\Documents\1DAM\Programacion\Tema2\Proyecto_Emanuel_hosuV2\V2SimonDice\.metadata\.plugins\org.eclipse.jdt.core
+795580755.index
+2356249969.index
+1865797976.index

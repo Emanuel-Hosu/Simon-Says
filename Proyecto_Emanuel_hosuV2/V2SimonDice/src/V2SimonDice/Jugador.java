@@ -11,7 +11,7 @@ public class Jugador {
 	 */
 	public Jugador (String _nombre) {
 		this.nombre = _nombre;
-		this.puntuacion = 0;;
+		this.puntuacion = 0;
 	}
 	/**
 	 * getNombre, este es un metodo que se encarga de devolver a la clase Engine el nombre introducido por el usuario
@@ -21,14 +21,14 @@ public class Jugador {
 		return "Hello " + this.nombre + ", press ENTER to start playing";
 	}
 	/**
-	 * getPuntuacion ...
+	 * getPuntuacion Un nuevo metodo implementado en la V2, este se encarga de enviar la puntuacion a la clase Engine cuando el metodo play() lo solicite
 	 * @return
 	 */
 	public int getScore() {
 		return this.puntuacion;
 	}
 	/**
-	 * setScore ...
+	 * setScore Otro nuevo metodo implementado en la V2, este se encarga de recibir la puntuacion y setearla 
 	 * @param score
 	 */
 	public void setScore(int score) {

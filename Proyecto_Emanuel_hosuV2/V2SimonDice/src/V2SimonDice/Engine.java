@@ -15,14 +15,11 @@ public class Engine {
 		Rojo, Azul, Verde, Dorado, Blanco, Marron, Naranja
 	}
 	/**
-	 * tModo
+	 * tModo este es un metodo que se encarga de devolvernos el modo del juego, si este es facil la puntuacion se multiplicara en el metodo play en * 1 y si esta en el modo dificil en el metodo play se multiplicara * 2 
 	 */
 	public enum tModo{
 		Facil, Dificil
 	}
-	/**
-	 * MAX_COLORES_SEQ, este es un  metodo static ( por que no nos interesa cambiar su resultado ) el cual se encarga de ponerle un "limite" al secuenciaColores
-	 */
 
 	public final int MAX_COLORES_SEQ= 15;
 	public final int MAX_COLORES_FACIL= 3;
@@ -52,15 +49,11 @@ public class Engine {
 		case 'N':
 			return tColores.Naranja;
 		default:
-			//System.out.println("Incorrect color...");
-			//System.out.println("Press ENTER to go to the menu.");
-			//scn.nextLine();
-			//mostrarMenu('0');
 			return null;
 		}
 	}
 	/**
-	 * intToColor, en este metodo se encarga de generar el array
+	 * intToColor, en este metodo se encarga de generar el array, metodo que tiene 7 colores, 4 para el modo facil y 7 para el mmodo dificl
 	 * @param _numero parametro que recibe un numero para converirlo en Color,
 	 * @return
 	 */
@@ -83,15 +76,11 @@ public class Engine {
 		case 6:
 			return tColores.Naranja;
 		default:
-			//System.out.println("Incorrect color...");
-			//System.out.println("Press ENTER to go to the menu.");
-			//scn.nextLine();
-			//mostrarMenu('0');
 			return null;
 		}
 	}
 	/**
-	 * 
+	 * intToModo un modo añadido por mi, este lo utilizo en el menu recibiendo un int y devolviendo el metodo para que lo reciba el play()
 	 * @param _chosedmode
 	 * @return
 	 */
@@ -105,21 +94,6 @@ public class Engine {
 			return null;
 		}
 	}
-	/**
-	 * tModo
-	 * @param _modo
-	 */
-//	public void tModo(int _modo) {
-//		if (_modo == 1) {
-//			generarSecuencia(3);
-//			play();
-//			//INTERIOR DEL MODO FAICL
-//		}else if (_modo == 2) {
-//			generarSecuencia(6);
-//			play();
-//			//INTERIOR DEL MODO  DIFICIL
-//		}
-//	}
 	/**
 	 * generarSecuencia, metodo que se encarga de generar un Array de colores aleatorios en el array secuenciaColores.
 	 * @param _numColores este parametro se encarga de recibir el numero de colores que exiten en el array
@@ -140,11 +114,6 @@ public class Engine {
 	 * @return este returna un true o un false
 	 */
 	public boolean comprobarColor(int _index, tColores _color) {
-		//+2 cada color acertado
-		//+5 Si acierta una secuencia
-		//-8 si pide ayuda ( pero nunca puede tener valores negativos
-		//+40 Si gana el juego
-		//Modo dificil la puntuacion es x2 
 		Scanner scn = new Scanner(System.in);
 		
 		if (secuenciaColores[_index] == (_color)) {
@@ -201,15 +170,11 @@ public class Engine {
 	        	        char playMode = new Scanner(System.in).next().charAt(0);
 	        	        
 	        	        if (playMode == '1') {
-	        	        	//LLEVAR JUGADOR AL MODO FACIL
-	        	        	//tModo(1);
 	        	        	generarSecuencia(MAX_COLORES_FACIL);
-	        	        	play(1);
+	        	        	play(intToModo(1));
 	        	        }else if (playMode == '2') {
-	        	        	//LLEVAR JUGADOR AL MODO DIFICIL
-	        	        	//tModo(2);
 	        	        	generarSecuencia(MAX_COLORES_DIFICIL);
-	        	        	play(2);
+	        	        	play(intToModo(2));
 	        	        }else if (playMode == '3'){
 	        	        	mostrarMenu('0');
 	        	        }else {
@@ -232,7 +197,7 @@ public class Engine {
 	    } while (_menu < 1 || _menu > 3);
 	}
 	/**
-	 * usarAyuda ...
+	 * usarAyuda este metdo se ecnarga de recibir por parametro el numero de intentos que tiene para usar el ayuda, este se retara una vez entrado en este metodo hasta llegar a 0
 	 * @param _index
 	 * @return
 	 */
@@ -288,7 +253,7 @@ public class Engine {
 			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
 			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
 			
-			System.out.print("\nWhat is your name? eh?" ); // Aqui se instancia el objeto jugador
+			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
 			Jugador player = new Jugador(scn.nextLine());
 			System.out.print(player.getNombre());
 			scn.nextLine();
@@ -300,7 +265,7 @@ public class Engine {
 	  		 * play, metodo que se encarga de llamar al método generarSecuencia y al metodo mostrarSecuencia que se encarga de recibir por consola los colores introducidos por el usuario
 	  		 * @param _modo
 	  		 */
-			public void play(int _modo) {
+			public void play(tModo _modo) {
 				Jugador player = new Jugador(null);
 				int puntuacion;
 				puntuacion = player.getScore();
@@ -356,7 +321,15 @@ public class Engine {
     							puntuacion += 5;
     						}
     					}else{
-    						System.out.println("You have " + (puntuacion * _modo) + " points");
+    						if (_modo == tModo.Dificil) {
+    							System.out.println("You have " + (puntuacion * 2) + " points");
+        						System.out.println("You failed :(, try again next time");
+        						System.out.println("Press ENTER to go to the menu.");
+        						scn.nextLine();
+        						mostrarMenu('0');
+    						}
+    						
+    						System.out.println("You have " + puntuacion + " points");
     						System.out.println("You failed :(, try again next time");
     						System.out.println("Press ENTER to go to the menu.");
     						scn.nextLine();
