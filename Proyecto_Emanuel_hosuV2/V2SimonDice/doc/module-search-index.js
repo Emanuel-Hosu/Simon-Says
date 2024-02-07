@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"V2SimonDice"}];updateSearchResults();
