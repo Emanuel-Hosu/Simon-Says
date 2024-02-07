@@ -190,7 +190,6 @@ public class Engine {
 	                    System.out.println();
 	                }
 	                System.out.println("Good bye :(");
-	                break;
 	            }else {
 	            System.out.println("Entrada no válida. Introduce un número VALIDO del 1 - 3.");
 	        }
