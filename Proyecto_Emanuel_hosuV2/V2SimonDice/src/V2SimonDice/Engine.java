@@ -228,8 +228,19 @@ public class Engine {
         System.out.println("A / a");
         System.out.println("R / r");
         System.out.println("V / v");
-        System.out.println("\nUna vez acertada la secuencia, se le mostrará un color más en la secuencia y deberá seguir los mismos pasos.");
-        System.out.println("Previamente mencionados. ¡Disfruta al máximo el juego! :D");
+        System.out.println("Una vez acertada la secuencia, se le mostrará un color más en la secuencia y deberá seguir los mismos pasos.");
+        System.out.println("Previamente mencionados.");
+        System.out.println("\n¡Versión 2 del Simón Dice ya esta aquí!");
+        System.out.println("¿Que novedades tenemos?");
+        System.out.println("Esta actualización cuenta con un nuevo modo de juego y un nuevo sistema de puntuaje. Desde Emis Companys hem-");
+        System.out.println("os diseñado y preparado un nuevo sistema de ayuda que al pulsar X o x, este te pondrá de forma automática el");
+        System.out.println("color. A continuación, se le mostrará un ejemplo:");
+        System.out.println("Sequence number 1: [Azul, Rojo, Verde]");
+        System.out.println("A / a");
+        System.out.println("X / x");
+        System.out.println("Next color is: Rojo (you have 2 hint more)");
+        System.out.println("V / v");
+        System.out.println("¡Disfruta al máximo el juego! :D");
         System.out.println("\nPress ENTER to go back to the menu.");
         scn.nextLine();
         
