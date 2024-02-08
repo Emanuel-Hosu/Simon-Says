@@ -1,3 +1,5 @@
+![Logo de GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+
 # Simón dice
 ¡Bienvenido al emocionante mundo de Simon Dice en tu terminal!
 
