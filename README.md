@@ -2,8 +2,6 @@
 
 ¡Bienvenido al emocionante mundo de Simon Dice en tu terminal!
 
-Aquí puedes escribir tu texto que quieres que aparezca al lado de la imagen.
-
 ¿Aburrido de los mismos viejos juegos? ¡No te preocupes más! Con esta increíble obra maestra en Java, podrás disfrutar del clásico juego de Simon Dice directamente en tu consola.
 
 ¿Qué hace? ¡Fácil! Te desafía a seguir una secuencia de colores cada vez más difícil, ¡poniendo a prueba tu memoria y habilidades! Y lo mejor de todo, ¡la diversión nunca termina!
