@@ -1,7 +1,10 @@
-![Logo de GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
-
 # Simón dice
 ¡Bienvenido al emocionante mundo de Simon Dice en tu terminal!
+
+<p align="left">
+  <img width="200" src="[https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png](https://i.pinimg.com/originals/cb/99/a8/cb99a8e7388e2e61d26ac10448da2c21.gif)" alt="Logo de GitHub">
+</p>
+Aquí puedes escribir tu texto que quieres que aparezca al lado de la imagen.
 
 ¿Aburrido de los mismos viejos juegos? ¡No te preocupes más! Con esta increíble obra maestra en Java, podrás disfrutar del clásico juego de Simon Dice directamente en tu consola.
 
