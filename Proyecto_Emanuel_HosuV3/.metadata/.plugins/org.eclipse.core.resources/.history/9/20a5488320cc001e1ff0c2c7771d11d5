@@ -1,0 +1,27 @@
+package SimonDiceV3;
+
+import SimonDiceV3.Engine.tColores;
+
+/**
+ * @author emi
+ */
+public class Record {
+	public final int MAX_JUGADORES= 10;
+	secuenciaColores = new tColores[MAX_COLORES_SEQ];
+	//MAX JUGADORES + ARRAY
+	//VARIABLE CONT PARA CONTAR A LOS JUGADORES, CONT ++ 
+	
+	
+	//CONSTRUCTORA QUE INICIALIZA LOS ATRIBUTOS
+	
+	
+	//METODOS QUE NO ESTAN EN EL PDF
+		//+ ADD PLAYER
+		//METODO QUE DADO UN NOMBRE DEL JUGADOR, RETORNAR EL JUGADOR (void getJugadorByName, recibe un String y busca en el array de jugadores y lo retorna)
+		// ? getContador
+		//void ORDENAR RANCKING {ALGORITMO DE LA BURBUJA DESCENDENTE}
+	
+	//showRancking():	
+	//showBestPlayer(): ordenar y scar los players
+		
+}

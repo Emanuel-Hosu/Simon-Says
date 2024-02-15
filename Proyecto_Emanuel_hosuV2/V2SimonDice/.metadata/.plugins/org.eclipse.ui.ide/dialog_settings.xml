@@ -9,4 +9,12 @@
 			<item value="C:\Users\emisi\Documents\1DAM\Programacion\Tema2\Proyecto_Emanuel_hosuV2\V2SimonDice"/>
 		</list>
 	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="505"/>
+		<item key="DIALOG_Y_ORIGIN" value="269"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
 </section>

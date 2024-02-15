@@ -1,0 +1,8 @@
+package SimonDiceV3;
+
+public class Record {
+	//MAX JUGADORES + ARRAY
+	//VARIABLE CONT PARA CONTAR A LOS JUGADORES, CONT ++
+	
+
+}
