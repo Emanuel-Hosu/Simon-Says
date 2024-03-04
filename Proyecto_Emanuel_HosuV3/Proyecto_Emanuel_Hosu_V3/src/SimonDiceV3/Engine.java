@@ -59,8 +59,6 @@ public class Engine {
 	 * @return
 	 */
 	public tColores intToColor(int _numero) {
-		//Scanner scn = new Scanner(System.in);
-		
 		switch (Character.toUpperCase(_numero)) {
 		case 0:
 			return tColores.Rojo;
@@ -140,8 +138,6 @@ public class Engine {
 	}
 	/**
 	 * mostrarMenu metodo que se encarga de mostrar el menu
-	 * @param _menu Este metodo se encarga de generar el menú y recibir por consola un numero que este redigira hacia donde lo haya indicado el usuario
-	 * @return 
 	 */
 	public void mostrarMenu() {
 	    Scanner scn = new Scanner(System.in);
@@ -217,6 +213,8 @@ public class Engine {
 	 */
 	  public void start() {
 		  	Scanner scn = new Scanner(System.in);
+			char _menu;
+			int puntuacion = 0;
 		  	
 	        System.out.println("Welcome to...");
 			System.out.println("			  ██");
@@ -228,14 +226,15 @@ public class Engine {
 			System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
 			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
 			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
-			
 			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
 			Jugador player = new Jugador(scn.nextLine());
+			
+			Record record_player = new Record(player, puntuacion);
+			record_player.addPlayer(player);
+			
 			// INTRODUCIRLO AL METODO JUGADOR
-			System.out.print(player.getNombre());
+			System.out.print("Hello " + player.getNombre() + ", press ENTER to start playing.");
 			scn.nextLine();
-			char _menu;
-			int puntuacion = 0;
 			
 			do {
 				mostrarMenu();
@@ -245,23 +244,41 @@ public class Engine {
 	                for (int salto = 0; salto < 50; salto++) {
 	                	System.out.println();
 	                }
-	                	
-	                    System.out.println("Select difficulty: ");
+	                	System.out.println("¡Versión 3 del Simón Dice ya esta aquí!");
+	                    System.out.println("\nSelect difficulty: ");
 	                    System.out.println("1. Easy mode");
 	        	        System.out.println("2. Hard mode");
-	        	        System.out.println("3. Back to the menu");
+	        	        System.out.println("3. 10 BEST PLAYERS");
+	        	        System.out.println("4. PLAYER O PLAYERS WITH BEST POINTS");
+	        	        System.out.println("5. Back to the menu");
 	        	        char playMode = new Scanner(System.in).next().charAt(0);
+	        	        for (int salto = 0; salto < 50; salto++) {
+	        	            System.out.println();
+	        	        }
 	        	        
 	        	        if (playMode == '1') {
 	        	        	player.setScore(play(intToModo(1)));
 	        				player.getScore();
+	        				
 	        				//SOLO SE ACRUALIZA SI LA PUNTAUCION ES MAS ALTA QUE LA QUE TENIA
 	        	        }else if (playMode == '2') {
-	        	        	player.setScore(play(intToModo(2)));
+	        	        	player.setScore(play(intToModo(2)) * 2);
 	        				player.getScore();
 	        				//AQUI HAY QUE VAMBIAR LINEA 263
 	        	        }else if (playMode == '3'){
-	        	        	mostrarMenu();
+	        	        	record_player.showRancking();
+	        	        	player.getScore();
+	        	        	System.out.print("Press ENTER to continue.");
+	        				scn.nextLine();
+	        				mostrarMenu();
+	        	        	
+	        	        }else if (playMode == '4'){
+	        	        	record_player.showBestPlayer();
+	        	        	player.getScore();
+	        	        	System.out.print("Press ENTER to continue.");
+	        				scn.nextLine();
+	        				mostrarMenu();
+	        	        	
 	        	        }else {
 	        	            System.out.println("Entrada no válida. Introduce un número VALIDO del 1 - 3.");
 	        	        }
@@ -279,7 +296,7 @@ public class Engine {
 		            }else {
 		            System.out.println("Entrada no válida. Introduce un número VALIDO del 1 - 3.");
 		        }
-			} while (_menu != 3);
+			} while (_menu != 0);
 		}
 	  		/**
 	  		 * play, metodo que se encarga de llamar al método generarSecuencia y al metodo mostrarSecuencia que se encarga de recibir por consola los colores introducidos por el usuario
@@ -295,7 +312,7 @@ public class Engine {
 			  	
     			int i = 1;
 				int index = 0;
-				//boolean fallo = true;
+				
 				if (_modo == tModo.Dificil) {
     	        	generarSecuencia(MAX_COLORES_DIFICIL);
 				}else
@@ -348,8 +365,7 @@ public class Engine {
         						scn.nextLine();
 
     						}
-    						//start();
-
+    						
     		    			return puntuacion;
     					}
     					
@@ -368,9 +384,7 @@ public class Engine {
 	    			System.out.println("Congratulations :D. You won the game");
 	    			System.out.println("Press ENTER to go to the menu.");
 	    			scn.nextLine();
-					//fallo = false;
 				}
-    			//start();
     			return puntuacion;
 	  }
 }

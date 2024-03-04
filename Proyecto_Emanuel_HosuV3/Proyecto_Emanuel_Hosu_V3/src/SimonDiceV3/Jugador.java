@@ -17,8 +17,10 @@ public class Jugador {
 	 * getNombre, este es un metodo que se encarga de devolver a la clase Engine el nombre introducido por el usuario
 	 * @return
 	 */
+	
+	//QUITAR LOS STRINGS DEL getNombre
 	public String getNombre() {
-		return "Hello " + this.nombre + ", press ENTER to start playing";
+		return this.nombre;
 	}
 	/**
 	 * getPuntuacion Un nuevo metodo implementado en la V2, este se encarga de enviar la puntuacion a la clase Engine cuando el metodo play() lo solicite
