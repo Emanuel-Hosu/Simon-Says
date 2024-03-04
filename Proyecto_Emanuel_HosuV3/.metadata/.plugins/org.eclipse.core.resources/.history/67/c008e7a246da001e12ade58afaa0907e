@@ -1,0 +1,120 @@
+package SimonDiceV3;
+
+/**
+ * @author emi
+ */
+public class Record {
+	private final int MAX_JUGADORES= 10;
+	private Jugador[] players = new Jugador[MAX_JUGADORES];
+	private Jugador jugador;
+	private int puntuacion; 
+	private int cont = 0;
+	
+	//CONSTRUCTORA QUE INICIALIZA LOS ATRIBUTOS
+	/**
+	 * Record constructora que inicializa los atributos
+	 * @param _player
+	 * @param _puntuacion
+	 */
+	public Record(Jugador _player, int _puntuacion) {
+		this.jugador = _player;
+		this.puntuacion = _puntuacion;
+	}
+	/**
+	 * addPlayer metodo que se encarga de aniadir jugador al array players
+	 * @param player
+	 */
+	public void addPlayer(Jugador player) {
+		if (cont < MAX_JUGADORES) {
+			this.players[cont] = player;
+			
+			this.cont++;
+		}
+		
+	}
+	/**
+	 * getJugadorByName metodo que recibe por parametro un string y lo convierte en jugador, devolviendo un jugador
+	 * @param _nombre
+	 * @return
+	 */
+	public Jugador getJugadorByName(String _nombre) {
+		int i = 0;
+		while (this.players[i].getNombre() != _nombre) {
+			if (this.players[i].getNombre() == _nombre) {
+				return jugador;
+			}
+			
+			i++;
+		}
+		return null;
+	}
+	/**
+	 * ordenarRanking metodo que se encarga de ordenar el array players
+	 * Complejidad del metodo 0(n2)
+	 */
+	public void ordenarRanking() {
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		
+	        for (int i = 0; i < stoper - 1; i++) {
+	            for (int h = 0; h < stoper - i - 1; h++) {
+	                if (this.players[h + 1].getScore() > this.players[h].getScore()) {
+	                    Jugador saver = this.players[h + 1];
+	                    this.players[h + 1] = this.players[h];
+	                    this.players[h] = saver;
+	                }
+	            }
+	        }
+	}
+	/**
+	 * showRancking metodo que ordena los jugadores, acto seguido imprime los jugadores existentes (hasta 10), en pantalla al ser pedido
+	 */
+	public void showRancking() {
+		ordenarRanking();
+		System.out.println("TOP 10 PLAYERS RANKING");
+		System.out.println("----------------------");
+		
+		for (int i = 0; i < cont; i++) {
+	        System.out.println((i + 1) + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+	    }
+	}
+	/**
+	 * showBestPlayer metodo que ordena los jugadores, acto seguido elige el primer jugador de la lista y lo imprime
+	 */
+	public void showBestPlayer() {
+		ordenarRanking();
+		System.out.println("TOP 1 PLAYER - HIGH SCORE");
+		System.out.println("-------------------------");
+		
+		int max = this.players[0].getScore();
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		
+		int i = 0;
+		
+		do {
+			System.out.println(1 + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+			
+			
+		}while(this.players[i].getScore() == max);
+		/*while (this.players[i].getScore() == max) {
+			System.out.println(1 + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+			
+			while (i < stoper - 1) {
+				i++;
+			}
+		}*/
+	}
+	
+	//cargarRancking()
+	
+	//escribirRancking()
+}

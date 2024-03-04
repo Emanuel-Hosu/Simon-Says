@@ -1,0 +1,28 @@
+package SimonDiceV3;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/**
+		 * @param Engine eng, objeto que se encarga de hacer la llamada a la clase Engine (motor del juego), para dar comienzo al juego
+		 */
+		//Engine eng = new Engine();
+		//eng.start();
+		Jugador player = new Jugador("Emi");
+		Jugador player2 = new Jugador("Arturo");
+		Jugador player3 = new Jugador("Alvarito");
+		Jugador player4 = new Jugador("Hector");
+		Jugador player5 = new Jugador("Johnatan");
+		
+		player.setScore(200);
+		player2.setScore(900);
+		player3.setScore(50);
+		player4.setScore(122);
+		player5.setScore(33);
+		
+		Record jugadores = new Record(player, player.getScore());
+		
+	}
+
+}

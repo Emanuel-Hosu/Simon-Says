@@ -1,0 +1,109 @@
+package SimonDiceV3;
+
+/**
+ * @author emi
+ */
+public class Record {
+	//MAX JUGADORES + ARRAY
+	private final int MAX_JUGADORES= 10;
+	private Jugador[] players = new Jugador[MAX_JUGADORES];
+	private Jugador jugador;
+	private int puntuacion;
+	//VARIABLE CONT PARA CONTAR A LOS JUGADORES, CONT ++ 
+	private int cont = 0;
+	
+	//CONSTRUCTORA QUE INICIALIZA LOS ATRIBUTOS
+	/**
+	 * Record
+	 * @param _player
+	 * @param _puntuacion
+	 */
+	public Record(Jugador _player, int _puntuacion) {
+		this.jugador = _player;
+		this.puntuacion = _puntuacion;
+	}
+	/**
+	 * addPlayer
+	 * @param player
+	 */
+	public void addPlayer(Jugador player) {
+		if (cont < MAX_JUGADORES) {
+			this.players[cont] = player;
+			
+			this.cont++;
+		}
+		
+	}
+	/**
+	 * getJugadorByName
+	 * @param _nombre
+	 * @return
+	 */
+	public Jugador getJugadorByName(String _nombre) {
+		int i = 0;
+		while (this.players[i].getNombre() != _nombre) {
+			if (this.players[i].getNombre() == _nombre) {
+				return jugador;
+			}
+			
+			i++;
+		}
+		return null;
+	}
+	/**
+	 * getContador
+	 * @return cont
+	 */
+	public int getContador() {
+		return cont;
+	}
+	/**
+	 * ordenarRanking
+	 * Complejidad del metodo 0(n2)
+	 */
+	public void ordenarRanking() {
+		for (int i = 0; i < this.players.length; i++) {
+			if (this.players[i] == null) {
+				continue;
+			}
+			int best = this.players[i].getScore();
+			int h = i - 1;
+			while ( h >= 0 && this.players[i + 1].getScore() > best) {
+				this.players[h + 1] = this.players[h];
+				h = h - 1;
+			}
+			int result = this.players[h + 1].getScore();
+			result = best;
+		}
+	}
+	/**
+	 * showRancking
+	 */
+	public void showRancking() {
+		ordenarRanking();
+		
+		for (int i = 0; i < cont; i++) {
+	        System.out.println((i + 1) + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+	    }
+	}
+	/**
+	 * showBestPlayer
+	 */
+	public void showBestPlayer() {
+		ordenarRanking();
+		int i = 0;
+		
+		while (i < 2) {
+			System.out.println((i + 1) + "." + " " + jugador);
+		}
+	}
+	//METODOS QUE NO ESTAN EN EL PDF
+		//+ ADD PLAYER
+		//METODO QUE DADO UN NOMBRE DEL JUGADOR, RETORNAR EL JUGADOR (Jugador getJugadorByName, recibe un String y busca en el array de jugadores y lo retorna)
+		// ? getContador
+		//void ORDENAR RANCKING {ALGORITMO DE LA BURBUJA DESCENDENTE}
+	
+	//showRancking():	
+	//showBestPlayer(): ordenar y scar los players
+		
+}
