@@ -1,0 +1,17 @@
+package SimonDiceV3;
+
+public class CustomWriteFile implements ICustomWriter{
+
+	@Override
+	public void closeFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void escribirJugadores() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,52 @@
+package SimonDiceV3;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class CustomReadFile extends FileWriter implements ICustomReadFile{
+	ArrayList<Jugador> players = new ArrayList<Jugador>();
+
+	public CustomReadFile(File file) throws IOException {
+		super(file);
+	}
+
+	@Override
+	public void closeReadFIle() {
+		// TODO Auto-generated method stub
+		this.closeReadFIle();
+	}
+
+	@Override
+	public ArrayList<Jugador> leerJugadores() {
+		// TODO Auto-generated method stub
+		//Tiene que leer el primer Jugador
+		//"src/Data1/best_players"
+		try(BufferedReader lectura = new BufferedReader(new FileReader("src/Data1/best_players"));) {
+			Jugador cadena;
+			int cont = 0;
+			Jugador nombre;
+			
+			while ((cadena = lectura.readLine()) != null) {
+				nombre = cadena.split(" ")[0];
+				players.add(nombre);
+				//System.out.println(cadena);
+				
+				
+				cont ++;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		//crear y meter jugador en el vector/ArrayList
+		
+		
+		//Devolver un Vector o yn ArrayList tipo jugador
+		return players;
+	}	
+	
+}

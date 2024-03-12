@@ -23,21 +23,21 @@ public class Main {
 		Jugador player4 = new Jugador("Hector");
 		Jugador player5 = new Jugador("Johnatan");
 		
-		player.setScore(102);
+		player.setScore(900);
 		player2.setScore(900);
-		player3.setScore(300);
-		player4.setScore(203);
+		player3.setScore(900);
+		player4.setScore(900);
 		player5.setScore(900);
 			
-		Record jugadores = new Record(player, player.getScore());
+		Record jugadores = new Record();
 		jugadores.addPlayer(player);
 		jugadores.addPlayer(player2);
 		jugadores.addPlayer(player3);
 		jugadores.addPlayer(player4);
 		jugadores.addPlayer(player5);
 		
-		jugadores.showBestPlayer();*/
-		
+		jugadores.showBestPlayer();
+		*/
 	}
 
 }

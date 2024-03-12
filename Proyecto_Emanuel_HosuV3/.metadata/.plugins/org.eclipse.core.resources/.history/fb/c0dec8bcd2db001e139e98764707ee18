@@ -1,0 +1,16 @@
+package SimonDiceV3;
+
+public interface ICustomReadFile {
+	
+	default void closeReadFIle(){
+		//Try catch
+		//Exepcion en el metodo de la clase ICustomReadFile
+	}
+	
+	default void leerJugadores() {
+		//devuelce un vector/arraylist tipo jugador
+			//leer primero el jugador
+			//crear y meter jugador en el vector del ArrayList
+	}
+	
+}

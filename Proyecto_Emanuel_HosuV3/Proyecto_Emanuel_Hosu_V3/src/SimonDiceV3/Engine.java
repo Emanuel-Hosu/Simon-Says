@@ -229,12 +229,13 @@ public class Engine {
 			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
 			Jugador player = new Jugador(scn.nextLine());
 			
-			Record record_player = new Record(player, puntuacion);
+			Record record_player = new Record();
 			record_player.addPlayer(player);
 			
 			// INTRODUCIRLO AL METODO JUGADOR
 			System.out.print("Hello " + player.getNombre() + ", press ENTER to start playing.");
 			scn.nextLine();
+			record_player.cargarRancking();
 			
 			do {
 				mostrarMenu();
