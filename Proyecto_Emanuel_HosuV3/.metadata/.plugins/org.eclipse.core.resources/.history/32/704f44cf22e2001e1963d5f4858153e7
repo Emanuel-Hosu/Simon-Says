@@ -22,7 +22,7 @@ public class Engine {
 		Facil, Dificil
 	}
 
-	public final int MAX_COLORES_SEQ= 15;
+	public final int MAX_COLORES_SEQ= 3;
 	public final int MAX_COLORES_FACIL= 3;
 	public final int MAX_COLORES_DIFICIL = 6;
 	public int pistas = 3;
@@ -147,8 +147,7 @@ public class Engine {
 	            System.out.println();
 	        }
 
-	        System.out.println("█▀▄▀█ █▀▀ █▄░█ █░█");
-	        System.out.println("█░▀░█ ██▄ █░▀█ █▄█");
+
 	        System.out.println("1. Play");
 	        System.out.println("2. How to play");
 	        System.out.println("0. Exit");
@@ -177,12 +176,6 @@ public class Engine {
 	public void helpMenu() throws IOException {
 		Scanner scn = new Scanner(System.in);
 		
-		System.out.println("██╗░░██╗███████╗██╗░░░░░██████╗░");
-        System.out.println("██║░░██║██╔════╝██║░░░░░██╔══██╗");
-        System.out.println("███████║█████╗░░██║░░░░░██████╔╝");
-        System.out.println("██╔══██║██╔══╝░░██║░░░░░██╔═══╝░");
-        System.out.println("██║░░██║███████╗███████╗██║░░░░░");
-        System.out.println("╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░");
         
         System.out.println("Bienvenido al apartado de ayuda:");
         System.out.println("Una vez se haya generado la primera secuencia, se te mostrarán 3 colores, los cuales tendrás que memorizar. ");
@@ -220,15 +213,7 @@ public class Engine {
 			int puntuacion = 0;
 		  	
 	        System.out.println("Welcome to...");
-			System.out.println("			  ██");
-			System.out.println("			  █░");
-			System.out.println("			   ");
-			System.out.println("░██████╗██╗███╗░░░███╗░█████╗░███╗░░██╗  ██████╗░██╗░█████╗░███████╗");
-			System.out.println("██╔════╝██║████╗░████║██╔══██╗████╗░██║  ██╔══██╗██║██╔══██╗██╔════╝");
-			System.out.println("╚█████╗░██║██╔████╔██║██║░░██║██╔██╗██║  ██║░░██║██║██║░░╚═╝█████╗░░");
-			System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
-			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
-			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
+
 			System.out.print("\nWhat is your name?" );
 			Jugador player = new Jugador(scn.nextLine());
 			

@@ -22,7 +22,7 @@ public class Engine {
 		Facil, Dificil
 	}
 
-	public final int MAX_COLORES_SEQ= 15;
+	public final int MAX_COLORES_SEQ= 3;
 	public final int MAX_COLORES_FACIL= 3;
 	public final int MAX_COLORES_DIFICIL = 6;
 	public int pistas = 3;
