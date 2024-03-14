@@ -3,18 +3,21 @@ package Files;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * @author emi
+ */
 public class CustomWriteFile extends FileWriter implements ICustomWriteFile{
 	/**
-	 * CustomWriteFile constructora
-	 * @param file ..
-	 * @throws IOException ..
+	 * CustomWriteFile constructora de CustomWriteFile
+	 * @param _Path recibimos un string
+	 * @throws IOException 
 	 */
 	public CustomWriteFile(String _Path) throws IOException {
 		super("src/Data1/best_player.txt");
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * closeFile ...
+	 * closeFile metodo que se encarga de cerrar el fichero
 	 */
 	@Override
 	public void closeFile() {
@@ -27,7 +30,7 @@ public class CustomWriteFile extends FileWriter implements ICustomWriteFile{
 		}
 	}
 	/**
-	 * escribirJugadores
+	 * escribirJugadores metodo que recibe un string por parametro y lo escribe en el fichero
 	 */
 	@Override
 	public void escribirJugadores(String Chain) {
@@ -36,7 +39,6 @@ public class CustomWriteFile extends FileWriter implements ICustomWriteFile{
 			this.write(Chain);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			System.out.println("Exepcion en el metodo escribirJugadores de clase CustomWriteFile");
 		}
 	}

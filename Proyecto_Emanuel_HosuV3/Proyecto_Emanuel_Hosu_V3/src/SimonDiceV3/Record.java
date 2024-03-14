@@ -31,9 +31,8 @@ public class Record {
 	 * @param player recibe un Jugador
 	 */
 	public void addPlayer(Jugador player) {
-		//this.
-		if (cont < MAX_JUGADORES) {
-			this.players[cont] = player;
+		if (this.cont < MAX_JUGADORES) {
+			this.players[this.cont] = player;
 			
 			this.cont++;
 		}
@@ -47,7 +46,7 @@ public class Record {
 	public String getJugadorByName(String _nombre) {
 		int stoper = 0;
 		if (stoper < MAX_JUGADORES) {
-			stoper = cont;
+			stoper = this.cont;
 		}else {
 			stoper = MAX_JUGADORES;
 		}
@@ -70,7 +69,7 @@ public class Record {
 	public void ordenarRanking() {
 		int stoper = 0;
 		if (stoper < MAX_JUGADORES) {
-			stoper = cont;
+			stoper = this.cont;
 		}else {
 			stoper = MAX_JUGADORES;
 		}
@@ -153,7 +152,7 @@ public class Record {
 		ordenarRanking();
 		int stoper = 0;
 		if (stoper < MAX_JUGADORES) {
-			stoper = cont;
+			stoper = this.cont;
 		}else {
 			stoper = MAX_JUGADORES;
 		}
@@ -163,7 +162,7 @@ public class Record {
 		for (i = 0; i < stoper; i++) {
 			//puntuacion nombre salto de linea
 			//hay que pasar el array a string
-			chain += players[i].getNombre() + " " +  players[i].getScore() + "\n";
+			chain += this.players[i].getNombre() + " " +  this.players[i].getScore() + "\n";
 		}
 		//System.out.println(chain);
 		CustomWriteFile editFile = new CustomWriteFile("src/Data1/best_player.txt");

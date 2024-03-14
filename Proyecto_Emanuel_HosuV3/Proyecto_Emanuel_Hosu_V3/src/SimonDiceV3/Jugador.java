@@ -17,8 +17,6 @@ public class Jugador {
 	 * getNombre, este es un metodo que se encarga de devolver a la clase Engine el nombre introducido por el usuario
 	 * @return
 	 */
-	
-	//QUITAR LOS STRINGS DEL getNombre
 	public String getNombre() {
 		return this.nombre;
 	}

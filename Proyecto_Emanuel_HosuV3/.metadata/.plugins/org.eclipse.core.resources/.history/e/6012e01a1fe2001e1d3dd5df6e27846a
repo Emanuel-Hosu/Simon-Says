@@ -1,0 +1,14 @@
+package Files;
+import java.util.ArrayList;
+import SimonDiceV3.Jugador;
+/**
+ * @author emi
+ */
+public interface ICustomReadFile{
+	/**
+	 * closeReadFIle metodo que se encarga de cerrar el fichero
+	 */
+	void closeReadFIle();
+	ArrayList<Jugador> leerJugadores();
+	
+}

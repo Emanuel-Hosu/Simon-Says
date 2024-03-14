@@ -147,8 +147,7 @@ public class Engine {
 	            System.out.println();
 	        }
 
-	        System.out.println("█▀▄▀█ █▀▀ █▄░█ █░█");
-	        System.out.println("█░▀░█ ██▄ █░▀█ █▄█");
+
 	        System.out.println("1. Play");
 	        System.out.println("2. How to play");
 	        System.out.println("0. Exit");
@@ -177,12 +176,6 @@ public class Engine {
 	public void helpMenu() throws IOException {
 		Scanner scn = new Scanner(System.in);
 		
-		System.out.println("██╗░░██╗███████╗██╗░░░░░██████╗░");
-        System.out.println("██║░░██║██╔════╝██║░░░░░██╔══██╗");
-        System.out.println("███████║█████╗░░██║░░░░░██████╔╝");
-        System.out.println("██╔══██║██╔══╝░░██║░░░░░██╔═══╝░");
-        System.out.println("██║░░██║███████╗███████╗██║░░░░░");
-        System.out.println("╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░");
         
         System.out.println("Bienvenido al apartado de ayuda:");
         System.out.println("Una vez se haya generado la primera secuencia, se te mostrarán 3 colores, los cuales tendrás que memorizar. ");
@@ -214,32 +207,19 @@ public class Engine {
 	 * start Creacion del metodo start, metodo el cual recibe un nombre que llama a la clase Jugador
 	 * @throws IOException 
 	 */
-	//Cada vez que le doy a start leer el fichero, y gardarlo en la lista de jugadores del ranking (donde el addplayer)
-	//Por cada linea hacer un addPlayer de cada jugador 
 	  public void start() throws IOException {
 		  	Scanner scn = new Scanner(System.in);
 			char _menu;
 			int puntuacion = 0;
 		  	
 	        System.out.println("Welcome to...");
-			System.out.println("			  ██");
-			System.out.println("			  █░");
-			System.out.println("			   ");
-			System.out.println("░██████╗██╗███╗░░░███╗░█████╗░███╗░░██╗  ██████╗░██╗░█████╗░███████╗");
-			System.out.println("██╔════╝██║████╗░████║██╔══██╗████╗░██║  ██╔══██╗██║██╔══██╗██╔════╝");
-			System.out.println("╚█████╗░██║██╔████╔██║██║░░██║██╔██╗██║  ██║░░██║██║██║░░╚═╝█████╗░░");
-			System.out.println("░╚═══██╗██║██║╚██╔╝██║██║░░██║██║╚████║  ██║░░██║██║██║░░██╗██╔══╝░░");
-			System.out.println("██████╔╝██║██║░╚═╝░██║╚█████╔╝██║░╚███║  ██████╔╝██║╚█████╔╝███████╗");
-			System.out.println("╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░╚════╝░╚══════╝");
-			System.out.print("\nWhat is your name?" ); // Aqui se instancia el objeto jugador
-			//cargarRancking??
+
+			System.out.print("\nWhat is your name?" );
 			Jugador player = new Jugador(scn.nextLine());
 			
 			Record record_player = new Record();
         	record_player.cargarRanking();
-			//cargarRancking
 			
-			// INTRODUCIRLO AL METODO JUGADOR
 			System.out.print("Hello " + player.getNombre() + ", press ENTER to start playing.");
 			scn.nextLine();
 			
@@ -256,28 +236,25 @@ public class Engine {
 	                    System.out.println("1. Easy mode");
 	        	        System.out.println("2. Hard mode");
 	        	        System.out.println("3. 10 BEST PLAYERS");
-	        	        System.out.println("4. PLAYER O PLAYERS WITH BEST POINTS");
+	        	        System.out.println("4. PLAYER OR PLAYERS WITH BEST POINTS");
 	        	        System.out.println("5. Back to the menu");
 	        	        char playMode = new Scanner(System.in).next().charAt(0);
 	        	        for (int salto = 0; salto < 50; salto++) {
 	        	            System.out.println();
 	        	        }
-	        	        //escribirRancking 
+	        	        
 	        	        if (playMode == '1') {
 	        	        	player.setScore(play(intToModo(1)));
 	        				player.getScore();
 	        				record_player.addPlayer(player);
 	        				record_player.escribirRanking();
-	        				//SOLO SE ACRUALIZA SI LA PUNTAUCION ES MAS ALTA QUE LA QUE TENIA
 	        	        }else if (playMode == '2') {
 	        	        	player.setScore(play(intToModo(2)) * 2);
 	        				player.getScore();
 	        				record_player.addPlayer(player);
 	        				record_player.escribirRanking();
-	        				//AQUI HAY QUE VAMBIAR LINEA 263
 	        	        }else if (playMode == '3'){
 	        	        	record_player.showRancking();
-	        	        	//record_player.cargarRanking();
 	        	        	player.getScore();
 	        	        	System.out.print("Press ENTER to continue.");
 	        				scn.nextLine();
@@ -386,19 +363,17 @@ public class Engine {
     			}while(i <  secuenciaColores.length - 1 && comprobarColor(index, secuenciaColores[i]) == true); // && fallo == true AND COMBROBAR COLOOR RETURN TRUE
     			
     			if (_modo == tModo.Dificil) {
-    				//escribirRancking 
     				System.out.println("Your score: " + puntuacion * 2);
         			System.out.println("Congratulations :D. You won the game");
         			System.out.println("Press ENTER to go to the menu.");
         			scn.nextLine();
 				} else if (_modo == tModo.Facil) {
-					//escribirRancking 
 					System.out.println("Your score: " + puntuacion);
 	    			System.out.println("Congratulations :D. You won the game");
 	    			System.out.println("Press ENTER to go to the menu.");
 	    			scn.nextLine();
 				}
-    			//record_player.escribirRancking();
+    			
     			return puntuacion;
 	  }
 }

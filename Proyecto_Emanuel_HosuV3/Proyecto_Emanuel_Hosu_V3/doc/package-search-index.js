@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"Proyecto_Emanuel_Hosu_V3","l":"SimonDiceV3"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"Proyecto_Emanuel_Hosu_V3","l":"Files"},{"m":"Proyecto_Emanuel_Hosu_V3","l":"SimonDiceV3"}];updateSearchResults();

@@ -1,0 +1,15 @@
+package Files;
+/**
+ * @author emi
+ */
+public interface ICustomWriteFile {
+	/**
+	 * closeFile metodo que se encarga de cerrar el fichero
+	 */
+	void closeFile();
+	/**
+	 * escribirJugadores
+	 * @param Chain recibe un String
+	 */
+	void escribirJugadores(String Chain);
+}
