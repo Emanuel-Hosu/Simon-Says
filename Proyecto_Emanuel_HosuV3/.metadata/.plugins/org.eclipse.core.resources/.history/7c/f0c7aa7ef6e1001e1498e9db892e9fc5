@@ -1,0 +1,9 @@
+package Files;
+import java.util.ArrayList;
+import SimonDiceV3.Jugador;
+
+public interface ICustomReadFile{
+	void closeReadFIle();
+	ArrayList<Jugador> leerJugadores();
+	
+}

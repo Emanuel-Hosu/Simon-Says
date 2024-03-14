@@ -1,0 +1,183 @@
+package SimonDiceV3;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import Files.CustomReadFile;
+import Files.CustomWriteFile;
+
+/**
+ * @author emi
+ */
+public class Record {
+	private final int MAX_JUGADORES= 10; 
+	private Jugador[] players;
+	private int cont;
+	
+	//CONSTRUCTORA QUE INICIALIZA LOS ATRIBUTOS
+	/**
+	 * Record constructora que inicializa los atributos
+	 */
+	public Record() {
+		this.players = new Jugador[MAX_JUGADORES];
+		this.cont = 0;
+	}
+	/**
+	 * addPlayer metodo que se encarga de aniadir jugador al array players
+	 * complejidad lineal
+	 * @param player
+	 */
+	public void addPlayer(Jugador player) {
+		//this.
+		if (cont < MAX_JUGADORES) {
+			this.players[cont] = player;
+			
+			this.cont++;
+		}
+		
+	}
+	/**
+	 * getJugadorByName metodo que recibe por parametro un string y lo convierte en jugador, devolviendo un jugador
+	 * @param _nombre
+	 * @return
+	 */
+	public String getJugadorByName(String _nombre) {
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		//stoper
+		int i = 0;
+		while (this.players[i].getNombre() != _nombre && i < stoper) {
+			//equals
+			if (this.players[i].getNombre().equals(_nombre)) {
+				return this.players[i].getNombre();
+			}
+			
+			i++;
+		}
+		return null;
+	}
+	/**
+	 * ordenarRanking metodo que se encarga de ordenar el array players
+	 * Complejidad del metodo 0(n2)
+	 */
+	public void ordenarRanking() {
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		
+	        for (int i = 0; i < stoper - 1; i++) {
+	            for (int h = 0; h < stoper - i - 1; h++) {
+	                if (this.players[h + 1].getScore() > this.players[h].getScore()) {
+	                    Jugador saver = this.players[h + 1];
+	                    this.players[h + 1] = this.players[h];
+	                    this.players[h] = saver;
+	                }
+	            }
+	        }
+	}
+	/**
+	 * showRancking metodo que ordena los jugadores, acto seguido imprime los jugadores existentes (hasta 10), en pantalla al ser pedido
+	 */
+	public void showRancking() {
+		ordenarRanking();
+		System.out.println("TOP 10 PLAYERS RANKING");
+		System.out.println("----------------------");
+		
+		for (int i = 0; i < cont; i++) {
+	        System.out.println((i + 1) + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+	    }
+	}
+	/**
+	 * showBestPlayer metodo que ordena los jugadores, acto seguido elige el primer jugador de la lista y lo imprime
+	 */
+	public void showBestPlayer() {
+		ordenarRanking();
+		System.out.println("TOP 1 PLAYER - HIGH SCORE");
+		System.out.println("-------------------------");
+		
+		int max = this.players[0].getScore();
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		
+		int i = 0;
+		
+		do {
+			System.out.println(1 + "." + " " + this.players[i].getNombre() + ": " + this.players[i].getScore());
+			
+			i++;
+		}while((i < stoper && this.players[i].getScore() == max));
+	}
+	
+	public void cargarRanking() throws IOException {
+		//Crear objeto CustomReadfile Para leer el fichero
+		CustomReadFile leerFichero = new CustomReadFile("src/Data1/best_player.txt");
+
+		try {
+			ArrayList<Jugador> miVector = leerFichero.leerJugadores();
+			//leerFichero.leerJugadores();
+			
+			//Meter los onbjetos del arrayList de Custom en nuestro array de record
+			if (miVector == null) {
+				System.out.println("No hay jugadores en el ranking");
+				return;
+			}
+			
+			for(int i = 0; i < miVector.size(); i++) {
+				Jugador currentPlayer = miVector.get(i);
+				System.out.println((i + 1) + "." +currentPlayer.getNombre() + " " + currentPlayer.getScore());
+			};
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exception error founnd in method cargarRanking in the class Record ");
+		}
+		
+	}
+	
+	
+	public void escribirRanking() throws IOException {
+		ordenarRanking();
+		int stoper = 0;
+		if (stoper < MAX_JUGADORES) {
+			stoper = cont;
+		}else {
+			stoper = MAX_JUGADORES;
+		}
+		int i = 0;
+		String chain = "";
+		
+		for (i = 0; i < stoper; i++) {
+			//puntuacion nombre salto de linea
+			//hay que pasar el array a string
+			chain += players[i].getNombre() + " " +  players[i].getScore() + "\n";
+		}
+			System.out.println(chain);
+		//escribirJugadores();
+			
+		try {
+			CustomWriteFile editFile = new CustomWriteFile("src/Data1/best_player.txt");
+			editFile.escribirJugadores(chain);
+				
+			editFile.closeFile();
+			} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Se produjo una exepción en el metodo escribirRancking() de la clase Record");
+		}
+	}
+}

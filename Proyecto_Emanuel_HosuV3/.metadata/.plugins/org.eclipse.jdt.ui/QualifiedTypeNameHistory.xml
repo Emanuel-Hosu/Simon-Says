@@ -9,4 +9,8 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="SimonDiceV3.Jugador"/>
+    <fullyQualifiedTypeName name="Files.CustomReadFile"/>
+    <fullyQualifiedTypeName name="Files.CustomWriteFile"/>
 </qualifiedTypeNameHistroy>
