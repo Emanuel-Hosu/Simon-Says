@@ -149,7 +149,7 @@ public class Record {
 	 * @throws IOException
 	 */
 	public void escribirRanking() throws IOException {
-		//ordenarRanking();
+		ordenarRanking();
 		int stoper = 0;
 		if (stoper < MAX_JUGADORES) {
 			stoper = this.cont;

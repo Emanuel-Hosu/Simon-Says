@@ -262,13 +262,11 @@ public class Engine {
 	        	        	player.setScore(play(intToModo(1)));
 	        				player.getScore();
 	        				record_player.addPlayer(player);
-	        				record_player.ordenarRanking();
 	        				record_player.escribirRanking();
 	        	        }else if (playMode == '2') {
 	        	        	player.setScore(play(intToModo(2)) * 2);
 	        				player.getScore();
 	        				record_player.addPlayer(player);
-	        				record_player.ordenarRanking();
 	        				record_player.escribirRanking();
 	        	        }else if (playMode == '3'){
 	        	        	record_player.showRancking();
