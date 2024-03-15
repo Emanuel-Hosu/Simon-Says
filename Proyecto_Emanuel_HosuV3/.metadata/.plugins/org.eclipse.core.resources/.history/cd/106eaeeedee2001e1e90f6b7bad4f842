@@ -136,7 +136,7 @@ public class Record {
 				return;
 			}
 			
-			for(int i = 0; i < miVector.size() - 1 && i < MAX_JUGADORES; i++) {
+			for(int i = 0; i < miVector.size() && i < MAX_JUGADORES; i++) {
 				Jugador currentPlayer = miVector.get(i);
 				addPlayer(currentPlayer);
 				//System.out.println((i + 1) + "." +currentPlayer.getNombre() + " " + currentPlayer.getScore());
